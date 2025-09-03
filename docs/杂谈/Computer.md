@@ -35,7 +35,7 @@
 #### 建议关心的
 
 CPU性能 = （频率 *IPC）* 核心数
-![alt text](images/image.png)
+![alt text](images/cpu.png)
 
 1. **频率**：尤其是睿频频率（最大速率），但上图的2.30 GHz应该是主频
 2. **IPC**：主要由CPU架构决定，简单的方法是看是第几代就行了,如上图的第12代

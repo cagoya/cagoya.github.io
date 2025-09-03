@@ -25,59 +25,28 @@
 }
 ```
 
-由于不同厂商的API接口存在差异，需要统一的协议标准，这就是MCP（Model Context Protocol）协议的价值所在。
-
 ## MCP 协议
 
 MCP（Model Context Protocol，模型上下文协议）是一个开放标准，旨在统一大语言模型与外部工具、数据源和服务的交互方式。它类似于AI应用的"USB-C接口"，为AI模型提供标准化的连接方式。
 
-### MCP的核心组件
+MCP的核心组件有以下三个：
 
 - **MCP Host**：运行AI模型的应用程序（如Claude Desktop、Cursor等）
 - **MCP Client**：在Host内部，负责与MCP Server通信
 - **MCP Server**：提供特定功能的轻量级程序，暴露工具、资源和提示模板
 
-### MCP Server示例
-
-```json
-{
-  "mcpServers": {
-    "weather": {
-      "command": "python",
-      "args": ["weather_server.py"]
-    },
-    "database": {
-      "command": "node",
-      "args": ["db_server.js"]
-    }
-  }
-}
-```
-
 ## Agent
 
 AI Agent（智能体）是能够感知环境、做出决策并采取行动以实现特定目标的AI系统。与传统的一次性问答不同，Agent具备以下特征：
-
-### Agent的核心能力
 
 - **规划能力**：将复杂任务分解为可执行的步骤
 - **记忆能力**：维护短期和长期记忆
 - **工具使用**：调用外部函数和服务
 - **反思能力**：评估和调整自己的行为
 
-### Agent架构示例
-
-```text
-用户输入 → 规划模块 → 工具调用 → 结果处理 → 响应生成
-                ↓
-            记忆存储 ← 反思评估 ← 结果验证
-```
-
 ## LangChain
 
 LangChain是一个用于构建基于大语言模型的应用程序的开源框架，提供了以下核心功能：
-
-### 核心组件
 
 - **LangChain Expression Language (LCEL)**：声明式链式组合
 - **Chains**：预置的任务链模板
@@ -85,7 +54,6 @@ LangChain是一个用于构建基于大语言模型的应用程序的开源框�
 - **Agents**：支持工具调用的智能体
 - **Callbacks**：事件监听和调试
 
-### 典型使用示例
 
 ```python
 from langchain_openai import ChatOpenAI
@@ -105,16 +73,13 @@ result = chain.invoke({"input": "你好"})
 
 vLLM是一个高性能的大语言模型推理和服务引擎，专为高吞吐量场景优化。
 
-### 主要特性
-
 - **PagedAttention**：高效的注意力机制内存管理
 - **连续批处理**：提高GPU利用率
 - **流式输出**：支持实时响应
 - **OpenAI兼容API**：无缝迁移现有应用
-
-### 部署示例
-
+- 
 ```bash
+# 部署示例
 # 启动vLLM服务
 python -m vllm.entrypoints.openai.api_server \
   --model meta-llama/Llama-2-7b-chat-hf \
@@ -126,20 +91,14 @@ python -m vllm.entrypoints.openai.api_server \
 
 RAG（Retrieval-Augmented Generation，检索增强生成）是一种结合信息检索和文本生成的技术，通过从外部知识库检索相关信息来增强大模型的回答质量。
 
-### RAG工作流程
+RAG工作流程如下：
 
 1. **索引阶段**：将文档分割成chunks，生成向量嵌入并存储
 2. **检索阶段**：根据用户查询检索相关文档片段
 3. **生成阶段**：将检索到的上下文与查询一起输入模型生成回答
 
-### 技术栈
-
-- **向量数据库**：Chroma、Pinecone、Weaviate
-- **嵌入模型**：text-embedding-ada-002、bge-large-zh
-- **框架**：LangChain、LlamaIndex
-
-### 代码示例
 ```python
+# 代码示例
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
@@ -155,3 +114,4 @@ qa_chain = RetrievalQA.from_chain_type(
     llm=llm,
     retriever=vectorstore.as_retriever()
 )
+```
