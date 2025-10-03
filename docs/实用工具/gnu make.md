@@ -11,63 +11,59 @@ target ... : prerequisites
     ...
 ```
 
-- target 可以是一个目标文件，也可以是一个可执行文件，还可以是一个标签。
+- target 可以是一个目标文件，也可以是一个可执行文件，还可以是一个标签
 - prerequisites 生成该target所依赖的文件
 - recipe 该target要执行的命令（任意的shell命令）
 
-如果prerequisites中有一个以上文件比target文件要新（直接比修改时间）的话，recipe所定义的命令就会被执行。
+如果prerequisites中有一个以上文件比target文件要新（直接比修改时间）的话，recipe所定义的命令就会被执行。规则是简单的，但实际写起来的问题很多。
 
 ## 写法
 
-因为如果每一个文件都去写名称和操作的话，在大型程序中makefile文件会变得无比冗长，但是不用担心，makefile提供了许多简化的方法，比如变量名（类似于C的宏定义）。
+makefile 的编写并不是那么简单，这里先给一个简单的示例，假设你的项目目录如下
 
-一个示例：
+```bash
+├── Makefile        # makefile文件
+├── main.cpp        # 主程序文件
+└── utils.cpp       # 辅助函数实现
+└── utils.h         # 辅助函数头文件
+```
 
-``` makefile
-# 指定使用的C编译器为gcc
-CC = gcc
+> makefile文件一般推荐命名为`Makefile`或者`makefile`，其实`Makefile`更好，因为大写字母开头的在代码规范里面都是些特别的文件，能和源代码之类的区分开。
 
-# 编译选项:
-# -Wall: 打开所有警告
-# -Wextra: 开启额外警告
-# -O2: 优化级别2
-GFLAGS = -Wall -Wextra -O2
+对于这个项目，如果手写gcc的话，就可能是`g++ -std=c++17 -Wall -Wextra main.cpp utils.cpp -o my_app`，写在makefile中就可能是：
 
-# 预处理器选项:
-# -MMD: 生成依赖文件，文件扩展名为.d
-# -MP: 防止删除头文件后产生依赖错误
-CPPFLAGS = -MMD -MP
+```makefile
+# 编译器和编译选项
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra -g
 
-# 获取当前目录下所有的.c源文件
-SRCS = $(wildcard *.c)
+# 目标程序名称
+TARGET = my_app
 
-# 将.c源文件转换为.o目标文件
-OBJS = $(SRCS:.c=.o)
+# 所有 .cpp 源文件
+SRCS = main.cpp utils.cpp
 
-# 将.c源文件转换为.d依赖文件
-DEPS = $(SRCS:.c=.d)
+# 所有 .o 目标文件
+OBJS = $(SRCS:.cpp=.o)
 
-# 最终生成的可执行文件名称
-TARGET = canculator
-
-# 伪目标: all和clean不是真正的文件名
-.PHONY: all clean
-
-# 默认目标: all。编译所有内容并生成最终的可执行文件
+# 默认规则：编译目标程序
 all: $(TARGET)
 
-# 链接所有的.o文件，生成最终的可执行文件
+# 链接规则：将所有的 .o 文件链接成最终的可执行文件
 $(TARGET): $(OBJS)
-    $(CC) $(GFLAGS) -o $@ $^  # $@ 表示目标文件名, $^ 表示所有的依赖文件
+	$(CXX) $(OBJS) -o $(TARGET)
 
-# 编译每个.c文件为对应的.o文件
-%.o : %.c
-    $(CC) $(GFLAGS) $(CPPFLAGS) -c $< -o $@  # $< 表示第一个依赖文件, 即.c文件
+# 编译 .cpp 文件到 .o 文件的通用规则
+# $< 代表依赖项（即 .cpp 文件）
+# $@ 代表目标（即 .o 文件）
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# 包含所有的.d依赖文件，这样可以在增量编译时只重新编译受影响的部分
--include $(DEPS)
-
-# clean目标: 删除所有生成的.o文件、可执行文件和.d依赖文件
+# 清理规则：删除所有生成的文件
+.PHONY: clean
 clean:
-    rm -f *.o $(TARGET) $(DEPS)
+	rm -f $(TARGET) $(OBJS)
+	
+# 额外的“全部”和“清理”标记，表明它们不是真正的文件
+.PHONY: all
 ```
