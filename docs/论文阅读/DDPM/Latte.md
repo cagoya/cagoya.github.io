@@ -30,8 +30,3 @@ LDM 是在隐空间中执行扩散过程的高效扩散模型，扩散和去噪�
 2. Variant2 在一开始只经过spatial Transformer block，来获取空间信息，在最后才经过temporal Transformer block，来获取时间信息。
 3. Variant3 分解了多头注意力(multi-head attention)，每一个 Transformer block 都能捕获到时空信息。
 4. Variant4 把多头注意力拆分成了并行的两部分，每部分使用一般的注意力，分别处理时间信息和空间信息，最后再拼接起来。
-
-## 最佳架构设计
-
-### Latent video clip patch embedding
-
