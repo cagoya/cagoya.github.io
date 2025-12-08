@@ -385,12 +385,347 @@ while(true){
 
 ---
 
-说白了，上述三种锁本质都是一样的，满足的性质也是相同的，下面介绍一种有界等待的实现。
+说白了，上述三种锁本质都是一样的，满足的性质也是相同的，下面介绍一种有界等待的实现，改进的点是要选出下一个进入临界区的进程，这个选择是线性遍历。
 
 ```c
 while(true){
     waiting[i]=true;
     key=1;
+    while(waiting[i] && key==1)
+        key = compare_and_swap(&lock, 0, 1);
+    waiting[i] = false;
+        critical section;
+    j = (i+1)%n;
+    while((j!=i) && !waiting[j])
+        j=(j+1)%n;
+    if(j==i)
+        lock=0;
+    else
+        waiting[j]=false;
+    remainder section;
+}
+```
+
+### 互斥锁
+
+!!!tip 和先前内容的关系
+    先前的解决方案都是站在最底层描述，相对来说较为复杂，一般来说在不涉及系统级开发时，我们都喜欢用封装好的接口，比如这里的互斥锁。
+
+互斥锁提供了两个方法`acquire`和`release`
+
+```c
+acquire(){
+    while(!available);
+    available = false;
+}
+
+release(){
+    available = true;
+}
+```
+
+这里这种写法会导致在获得锁前一直循环，因此也叫自旋锁(spinlock)：
+
+- 优点：
+  - 适用于任意数目的进程，在单处理器或者多处理器上
+  - 简单，容易验证其正确性
+  - 可以支持进程内存在多个临界区，只需为每个临界区设立一个布尔变量
+- 缺点：
+  - 耗费CPU时间，不能实现让权等待
+  - 可能不满足有限等待，因为选择是随机的
+  - 可能死锁
+
+### 信号量
+
+#### 原理
+
+!!!warning 注意统一用法
+    要么是`wait()`和`signal()`，要么是`P()`和`V()`，不能混用！
+
+信号量(Semaphore)是一个整型变量，提供两个原子操作`wait()`和`signal()`，或者称作`P()`和`V()`
+
+```c
+wait(S){
+    while S<=0;
+    S--;
+}
+
+signal(S){
+    S++;
+}
+```
+
+信号量可以分为：
+
+- 计数(counting)型：无范围限制的整型值
+- 二进制(Binary)型：只能是0和1，更容易实现
+
+信号量有两大用法，除了提供互斥外，还可以实现同步
+
+```c
+// 互斥
+Semaphore S;
+wait(S);
+critical section;
+signal(S);
+remainder section;
+```
+
+```c
+// 同步
+// p1
+S1;
+Signal(S);
+
+// p2
+Wait(S)
+S2;
+```
+
+!!!question 需要几个信号量？
+    - Case 1：四个房间，四把相同的钥匙  *1个*
+    - Case 2：四个房间，四把不同的钥匙  *4个*
+
+#### 实现
+
+必须要保证同时只有一个进程能执行同一个信号量的`wait`和`signal`，所以信号量本身也是临界区问题，上面说过可以使用忙等实现，但是如果等待时间较长，忙等的开销也不小，忙等的示例如下：
+
+```c
+struct semaphore{
+    struct spinlock lock;
+    int count;
+}
+
+void V(struct semaphore *s){
+    acquire(&s->lock);
+    s->count += 1;
+    release(&s->lock);
+}
+
+void P(struct semaphore *s){
+    while(s->count==0);
+    acquire(&s->lock);
+    s->count -= 1;
+    release(&s->lock);
+}
+```
+
+与之相对，有非忙等的实现，需要将进程调度至信号量的等待队列中，及时释放出CPU资源，需要两个额外的操作（系统调用）：
+
+1. block(sleep)：将进程加入等待队列
+2. wakeup：将进程移除等待队列
+
+```c
+void V(struct semaphore *s){
+    acquire(&s->lock);
+    s->count += 1;
+    wakeup(s);
+    release(&s->lock);
+}
+
+void P(struct semaphore *s){
+    while(s->count == 0)
+        sleep(s);
+    acquire(&s->lock);
+    s->count -= 1;
+    release(&s->lock);
+}
+```
+
+但是上面这种实现有无法苏醒的问题，比如正当要执行`sleep`时触发了`wakeup`，实际导致先`wakeup`再`sleep`，这样一来再也等不到`wakeup`了。于是作出一点调整，判断是否要`sleep`前要先获得锁，但这样带来了另一个问题，`sleep`时是带着锁的，这会导致死锁，，因而需要在`sleep`时释放锁。
+
+### 死锁与饿死
+
+- 死锁(deadlock)：两个或多个进程都在无尽地等待一个只能由等待中的进程产生的事件
+- 饿死(starvation)：无尽地阻塞，一个进程永远无法从等待队列中出来
+
+## 典型问题
+
+!!!note 这一章是考试的重点
+
+### 基本规则
+
+信号量的物理含义是：
+
+- S.value>0表示有S.value个资源可用
+- S.value=0表示无资源可用
+- S.value<0，则|S.value|表示等待队列中的进程数
+
+`wait`和`signal`需要满足一些基本限制：
+
+- `wait`和`signal`必须成对出现，当为互斥操作时，它们同处于一个进程，当为同步操作是，则处于不同进程
+- 如果两个`wait`相邻，同步的`wait`必须在互斥的`wait`之前，否则可能导致死锁，两个相邻的`signal`的顺序无关紧要，因为无论如何`signal`都应该立刻完成
+
+### 有界缓冲区问题
+
+!!!question N buffers，每个可以容纳一个元素
+
+我们的需求是：
+
+1. 不能同时读写缓冲区 $\Rightarrow $ 临界区问题，需要一个互斥锁
+2. 缓冲区为空时不能读，缓冲区为满时不能写 $\Rightarrow $需要两个信号量来指示这两种临界状态
+
+故解决方案如下，定义：
+
+- 信号量 `mutex`，初始值为1
+- 信号量 `empty`，初始值为n
+- 信号量`full`，初始值为0
+
+```c
+// 生产者
+while(true){
+    wait(empty);
+    wait(mutex);
+    // 写缓冲区
+    signal(mutex);
+    signal(full);
+}
+```
+
+```c
+// 消费者
+while(true){
+    wait(full);
+    wait(mutex);
+    // 读缓冲区
+    signal(mutex);
+    signal(empty);
+}
+```
+
+### 读者写者问题
+
+一个数据集在一系列并发的进程之间共享：
+
+- 读者：只能读
+- 写者：可以读写
+
+!!!question 读者优先
+    允许多位读者一起读，有且仅有一位写者能在没有读者时开始写
+
+我们的需求是：
+
+1. 可以同时读，但写和读写均互斥，写需要有写锁
+2. 读者可以同时有多位，需要记录当前读者的数量，**这是一个普通变量**，但是不能同时加减这个变量，需要一个互斥锁
+
+```c
+// 读者
+wait(mutex);
+readcount++;
+if(readcount == 1) wait(wrt);
+signal(mutex);
+// 读操作
+wait(mutex);
+readcount--;
+if(readcount == 0) signal(wrt);
+signal(mutex);
+
+// 写者
+wait(wrt);
+// 写操作
+signal(wrt);
+```
+
+!!!question 写者优先
+    读者可以一起读，不过读者只有在没有写者处于等待中的情况下才能开始读，同时只能有一位写者在写
+
+```c
+// 信号量
+semaphore rw_mutex = 1;      // 读写锁
+semaphore mutex_r = 1;       // 保护read_count
+semaphore mutex_w = 1;       // 保护write_count
+semaphore block_readers = 1; // 阻塞新读者（写者优先的关键）
+
+int read_count = 0;
+int write_count = 0;
+
+// 读者
+while(true) {
+    wait(block_readers);     // 检查是否允许新读者
+    wait(mutex_r);
+    read_count++;
+    if(read_count == 1) {
+        wait(rw_mutex);
+    }
+    signal(mutex_r);
+    signal(block_readers);
     
+    // 读操作
+    
+    wait(mutex_r);
+    read_count--;
+    if(read_count == 0) {
+        signal(rw_mutex);
+    }
+    signal(mutex_r);
+}
+
+// 写者
+while(true) {
+    wait(mutex_w);
+    write_count++;
+    if(write_count == 1) {
+        wait(block_readers);  // 第一个写者阻塞新读者
+    }
+    signal(mutex_w);
+    
+    wait(rw_mutex);
+    // 写操作
+    signal(rw_mutex);
+    
+    wait(mutex_w);
+    write_count--;
+    if(write_count == 0) {
+        signal(block_readers); // 最后一个写者允许新读者
+    }
+    signal(mutex_w);
+}
+```
+
+!!!question 读写公平
+    可以同时读，不能同时写，读写公平竞争
+
+```c
+semaphore rw_mutex = 1;  // 读写锁
+semaphore mutex = 1;     // 保护read_count
+semaphore fair = 1;      // 保证公平性
+int read_count = 0;
+
+// 读者
+wait(fair);
+wait(mutex);
+read_count++;
+if(read_count == 1) wait(rw_mutex);
+signal(mutex);
+signal(fair);
+// 读操作
+wait(mutex);
+read_count--;
+if(read_count == 0) signal(rw_mutex);
+signal(mutex);
+
+// 写者
+wait(fair);
+wait(rw_mutex);
+signal(fair);
+// 写操作
+signal(rw_mutex);
+```
+
+### 哲学家问题
+
+!!!question 哲学家问题
+    哲学家面前有一碗饭，左右手各一只，需要同时拿起一双筷子才能吃饭
+
+问题本身并不复杂，但是下面这种实现可能导致死锁，解决起来不难，比如只允许四个人同时吃饭，其中有一个反序拿筷等
+
+```c
+while(true){
+    wait(chopstick[i]);
+    wait(chopstic[(i+1)%5]);
+    // eat
+    signal(chopstick[i]);
+    signal(chopstick[(i+1)%5]);
+    // think
 }
 ```
