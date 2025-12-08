@@ -30,6 +30,7 @@ jobs:
         run: |
           pip install --disable-pip-version-check mkdocs
           pip install --disable-pip-version-check mkdocs-material
+          pip install --disable-pip-version-check mkdocs-mermaid2-plugin
           pip install --disable-pip-version-check mkdocs-statistics-plugin
           pip install --disable-pip-version-check mkdocs-git-revision-date-localized-plugin
 
