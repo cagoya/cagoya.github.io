@@ -3295,7 +3295,7 @@
   <span class="md-ellipsis">
     
   
-    进程
+    CPU调度
   
 
     
@@ -3577,6 +3577,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多实例资源类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进程结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        资源剥夺
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3639,6 +3672,34 @@
     
   
     虚拟内存
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8_%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch8 文件系统
   
 
     
@@ -4207,6 +4268,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多实例资源类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进程结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        资源剥夺
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4239,7 +4333,7 @@
 
 <h1 id="_1">死锁</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1381 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 4 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 5 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1825 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 5 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 6 分钟</p>
 </div>
 <h2 id="_2">背景</h2>
 <h3 id="_3">跨桥问题</h3>
@@ -4397,6 +4491,33 @@
 <h4 id="_15">等待图</h4>
 <p>适用于每种资源只有一个实例的情况，顶点是进程，有向边$P_i\rightarrow P_j <span class="arithmatex">\(表示\)</span>P_i <span class="arithmatex">\(正在等待\)</span>P_j $，这个在数据库中也学过。</p>
 <p>需要周期性检测环，如果发现环，则说明发生了死锁，这个在minisql中是跑了一个后台线程，每隔一段时间检测一次，环检测可以使用dfs，时间复杂度是$V^2 $</p>
+<h4 id="_16">多实例资源类型</h4>
+<p>类似安全算法，不过只有<code>available</code>、<code>allocation</code>和<code>request</code>：</p>
+<ol>
+<li>初始化<code>work</code>为<code>available</code>，<code>finish[i]=false</code>for i in range(n) if allocation[i]!=0 else true</li>
+<li>找到一个索引i满足<code>finish[i]==false</code>且<code>request[i]&lt;=work</code>，如果找不到则跳到4</li>
+<li><code>work += allocation[i]</code>，<code>finish[i]=true</code>，跳转到2</li>
+<li>如果存在<code>finish[i]==false</code>，则系统陷入了死锁，并且是$P_i $陷入了死锁</li>
+</ol>
+<p>这个算法的时间复杂度是$m\times n^2 $</p>
+<p>!!!question 系统陷入死锁了吗？
+    <img src="images/ch5/deadlock.png" width=300></p>
+<p>没有，可能得执行顺序是$P_0 <span class="arithmatex">\(，\)</span>P2 <span class="arithmatex">\(，\)</span>P1 <span class="arithmatex">\(，\)</span>P3 <span class="arithmatex">\(，\)</span>P_4 $</p>
+<p>这个算法相当于判断资源分配图是否为可完全化简图，可完全化简图是指可以分配系统当前剩余的资源给某个非独立非阻塞的进程，让它执行完后释放资源，将它涉及的边消去，直到消去所有边，代表无死锁。</p>
+<p>什么时候使用和多久使用一次取决于系统发生死锁的频率，每个产生死锁的环需要回滚一个进程，如果任意使用这个算法，系统中会存在许多环，以至于无法判断是哪个进程出了问题。</p>
+<h4 id="_17">进程结束</h4>
+<p>释放(absort)所有死锁的进程，在死锁消除前每次回滚一个进程，顺序取决于很多因素，比如：</p>
+<ol>
+<li>进程的优先级</li>
+<li>进程执行了多久，还需要多久</li>
+<li>进程使用的资源量</li>
+<li>进程还需要多少资源</li>
+<li>需要结束多少个进程</li>
+<li>交互进程还是批处理进程</li>
+</ol>
+<p>在minisql中应该是要求回滚序号最大的线程（有点记不清了，反正当时有要求，要和测试统一）</p>
+<h4 id="_18">资源剥夺</h4>
+<p>相比于彻底结束一个进程，部分回滚的开销可能更小，需要选择一个受害者，以最小化开销，将进程部分回滚到安全状态，一些进程可能总被选为受害者（饿死），需要把回滚次数纳入优先级。</p>
 
 
 
@@ -4419,7 +4540,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 8, 2025 15:18:04 UTC">December 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 14, 2025 11:39:46 UTC">December 14, 2025</span>
   </span>
 
     
@@ -4429,7 +4550,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 8, 2025 15:18:04 UTC">December 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 14, 2025 11:39:46 UTC">December 14, 2025</span>
   </span>
 
     

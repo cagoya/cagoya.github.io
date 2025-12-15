@@ -3542,7 +3542,7 @@
   <span class="md-ellipsis">
     
   
-    进程
+    CPU调度
   
 
     
@@ -3655,6 +3655,34 @@
     
   
     虚拟内存
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch8_%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch8 文件系统
   
 
     
@@ -4297,7 +4325,7 @@ Supervised Representation Learning via GAN)</li>
 <ul>
 <li>$x $是CN中的数据</li>
 <li>$y' $是生成的假PT数据</li>
-<li><span class="arithmatex">\(z <span class="arithmatex">\(是一个用于声明不同模式和严重程度组合的隐变量，隐变量空间满足\)</span>Z=\{z:0\leq z_i\leq 1|\forall 1\leq i \leq M\}\)</span>，是一族$M $维向量</li>
+<li>$z <span class="arithmatex">\(是一个用于声明不同模式和严重程度组合的隐变量，隐变量空间满足\)</span>Z={z:0\leq z_i\leq 1|\forall 1\leq i \leq M}<span class="arithmatex">\(，是一族\)</span>M $维向量</li>
 </ul>
 <p>此处定义四个不同的数据分布：</p>
 <ol>
@@ -4336,7 +4364,7 @@ Supervised Representation Learning via GAN)</li>
 <p>综上所述，这里的损失定义为：</p>
 <p>$L_{recons}(f, g)=E_{x\sim p_{cn}, z\sim p_{lat}(z)}[||g(f(x,z)-z||_2] $</p>
 <h4 id="_9">模式分解</h4>
-<p>一个简单的<span class="arithmatex">\(g <span class="arithmatex">\(并不能并不能完全基于正向过程中\)</span>z_i <span class="arithmatex">\(带来的改变重建出\)</span>z_i <span class="arithmatex">\(，我们更关心的是对于真实PT的模式表示，然后反向函数\)</span>g <span class="arithmatex">\(可以用于预测R-incidices，因此反向函数必须要准确地捕获模式，因此把\)</span>g <span class="arithmatex">\(分解为\)</span>g_1:Y\rightarrow R^{M*S} <span class="arithmatex">\(（\)</span>M <span class="arithmatex">\(是模式数，\)</span>S <span class="arithmatex">\(是输入的维度）和\)</span>g_2: R^S\rightarrow R <span class="arithmatex">\(，\)</span>g_1 <span class="arithmatex">\(用于重建生成自\)</span>z_i <span class="arithmatex">\(的改变。此处，定义\)</span>q_i=f(x,a^i)-x <span class="arithmatex">\(，其中\)</span>a_i <span class="arithmatex">\(是一个向量，满足\)</span>a_i^i=z_i <span class="arithmatex">\(和\)</span>a^i_j=0 \forall i\neq j\)</span>，然后$\hat{q}_{f(x,z)}=[q_1^T,\dots,q_M^T] $是所有生成的改变的集合，分解的损失就可以定义如下：</p>
+<p>一个简单的$g <span class="arithmatex">\(并不能并不能完全基于正向过程中\)</span>z_i <span class="arithmatex">\(带来的改变重建出\)</span>z_i <span class="arithmatex">\(，我们更关心的是对于真实PT的模式表示，然后反向函数\)</span>g <span class="arithmatex">\(可以用于预测R-incidices，因此反向函数必须要准确地捕获模式，因此把\)</span>g <span class="arithmatex">\(分解为\)</span>g_1:Y\rightarrow R^{M*S} <span class="arithmatex">\(（\)</span>M <span class="arithmatex">\(是模式数，\)</span>S <span class="arithmatex">\(是输入的维度）和\)</span>g_2: R^S\rightarrow R <span class="arithmatex">\(，\)</span>g_1 <span class="arithmatex">\(用于重建生成自\)</span>z_i <span class="arithmatex">\(的改变。此处，定义\)</span>q_i=f(x,a^i)-x <span class="arithmatex">\(，其中\)</span>a_i <span class="arithmatex">\(是一个向量，满足\)</span>a_i^i=z_i <span class="arithmatex">\(和\)</span>a^i_j=0 \forall i\neq j<span class="arithmatex">\(，然后\)</span>\hat{q}_{f(x,z)}=[q_1^T,\dots,q_M^T] $是所有生成的改变的集合，分解的损失就可以定义如下：</p>
 <p>$L_{decom}(f,g_1)=E_{x\sim p_{cn}(x), z\sim p_{lat}(z)}[||g_1(f(x,z)-\hat{q}_{f(x,z)})||_2] $</p>
 <p>$g_2 $用于进一步重建隐变量的每个成分，因此重建损失可以被写作：</p>
 <p>$L_{recons}(f,g)=E_{x\sim p_{cn}(x),z\sim p_{lat}(z)}[||\hat{I}<em g_2_g_1_f_x_z_="g_2(g_1(f(x,z)))">{g_2(g_1(f(x,z)))}-z||_2] <span class="arithmatex">\(，其中\)</span>\hat{I}</em>=g(f(x,z)) $</p>
@@ -4395,7 +4423,7 @@ Supervised Representation Learning via GAN)</li>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 8, 2025 15:18:04 UTC">December 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 14, 2025 11:39:46 UTC">December 14, 2025</span>
   </span>
 
     
@@ -4405,7 +4433,7 @@ Supervised Representation Learning via GAN)</li>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 8, 2025 15:18:04 UTC">December 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 14, 2025 11:39:46 UTC">December 14, 2025</span>
   </span>
 
     

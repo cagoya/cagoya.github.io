@@ -29,7 +29,7 @@
     
     
       
-        <title>进程 - Nana's Notebook</title>
+        <title>CPU调度 - Nana's Notebook</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#cpu" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              进程
+              CPU调度
             
           </span>
         </div>
@@ -3304,7 +3304,7 @@
   <span class="md-ellipsis">
     
   
-    进程
+    CPU调度
   
 
     
@@ -3322,7 +3322,7 @@
   <span class="md-ellipsis">
     
   
-    进程
+    CPU调度
   
 
     
@@ -3348,307 +3348,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程调度
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="进程调度">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        定义
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        执行状态
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程调度
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程创建
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程终结
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        协同进程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程间通信
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="进程间通信">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        直接交流
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        非直接交流
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        同步
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffering" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        buffering
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        线程
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="线程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        简介
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        线程管理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        多线程基本模型
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#two-level" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Two level 模型
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关事务
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="相关事务">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fork-exec" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        fork 与 exec
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        取消线程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#singnal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Singnal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        线程池
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#thread-specific-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Thread Specific Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        调度器活动
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CPU 调度
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CPU 调度">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         基本概念
@@ -3656,7 +3356,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="基本概念">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#dispatcher" class="md-nav__link">
@@ -3670,7 +3371,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         调度目标
@@ -3679,6 +3380,23 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调度算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="调度算法">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#fcfs" class="md-nav__link">
@@ -3747,7 +3465,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         多处理器调度
@@ -3758,7 +3476,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         实时调度
@@ -3769,7 +3487,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         线程调度
@@ -3892,6 +3610,34 @@
     
   
     虚拟内存
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8_%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ch8 文件系统
   
 
     
@@ -4287,307 +4033,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程调度
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="进程调度">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        定义
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        执行状态
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程调度
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程创建
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程终结
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        协同进程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        进程间通信
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="进程间通信">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        直接交流
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        非直接交流
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        同步
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffering" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        buffering
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        线程
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="线程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        简介
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        线程管理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        多线程基本模型
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#two-level" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Two level 模型
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关事务
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="相关事务">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fork-exec" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        fork 与 exec
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        取消线程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#singnal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Singnal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        线程池
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#thread-specific-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Thread Specific Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        调度器活动
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CPU 调度
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CPU 调度">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         基本概念
@@ -4595,7 +4041,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="基本概念">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#dispatcher" class="md-nav__link">
@@ -4609,7 +4056,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         调度目标
@@ -4618,6 +4065,23 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调度算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="调度算法">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#fcfs" class="md-nav__link">
@@ -4686,7 +4150,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         多处理器调度
@@ -4697,7 +4161,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         实时调度
@@ -4708,7 +4172,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         线程调度
@@ -4743,191 +4207,11 @@
   
 
 
-<h1 id="_1">进程</h1>
+<h1 id="cpu">CPU调度</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 3418 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 27 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 14 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 12 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1060 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 8 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 4 分钟</p>
 </div>
-<h2 id="_2">进程调度</h2>
-<h3 id="_3">定义</h3>
-<p>操作系统会执行一系列的任务，对于批处理(batch)系统是一系列的任务在CPU上执行，对于Time-Sharing 的系统，多个用户的程序在CPU上执行。</p>
-<p><img alt="" src="../images/ch3/system.png" /></p>
-<blockquote>
-<p>这里的栈和堆不是数据结构的栈和堆，只是指一段特定地址空间</p>
-</blockquote>
-<p>进程就是执行中的程序，包括：</p>
-<ol>
-<li>text section(code)</li>
-<li>data section(global varibles)</li>
-<li>stack(function parameters, local varibles, return addresses)</li>
-<li>heap(dynamically allocated memory)</li>
-<li>program counter</li>
-</ol>
-<h3 id="_4">执行状态</h3>
-<p>进程一共有5种状态：</p>
-<ol>
-<li>new：进程被创建</li>
-<li>ready：进程被加载进内存，等到执行</li>
-<li>running：进程正在执行</li>
-<li>wating：进程主动退出执行，比如等待IO</li>
-<li>terminated：进程被结束</li>
-</ol>
-<p><img alt="" src="../images/ch3/diagram.png" /></p>
-<p>这里 interrupt 和 进入 waiting 的区别是前者是被动的，后者是主动的。</p>
-<p>进程有属于自己的上下文信息（主要是寄存器），在切换进程时需要保存，使用 Process Control Block(PCB)保存。然后是很经典的切换上下文的流程，先保存当前进程的PCB，再取出待切换进程的PCB，即切换到了对应进程，这个过程是有开销的。</p>
-<p><img alt="" src="../images/ch3/switch.png" /></p>
-<h3 id="_5">进程调度</h3>
-<p>使用队列来管理调度的信息，队列分为：</p>
-<ol>
-<li>Job queue：系统中的所有进程</li>
-<li>Ready queue：主存中的所有进程</li>
-<li>Device queue：等待IO的进程</li>
-</ol>
-<p>需要一个程序来调度进程，这个程序就被称作调度器(scheduler)，有长期的调度器（选择哪个进程到主存，即到ready queue）和短期的调度器（选择哪个进程到CPU）。现在的计算机其实不太需要长期调度器，比如Windows和Linux就都没有。短期的调度器会频繁被使用，长期调度器偶尔被使用，长期调度器控制了 multiprogramming 的程度。</p>
-<p>进程可以被描述为 CPU bound process和 IO bound process，即看CPU和IO谁的时间开销更大。</p>
-<h3 id="_6">进程创建</h3>
-<p>父进程创建子进程，然后继续创建其它进程，进程最后构成了一个树状结构。父子进程会涉及到：</p>
-<p>资源共享：</p>
-<ol>
-<li>父进程和子进程共享所有资源</li>
-<li>子进程占有父进程的一部分资源</li>
-<li>父子不共享资源</li>
-</ol>
-<p>执行：</p>
-<ol>
-<li>父子进程并发执行</li>
-<li>父进程等待子进程结束</li>
-</ol>
-<p>地址空间：</p>
-<ol>
-<li>子进程复制父进程</li>
-<li>子进程加载一个新的程序</li>
-</ol>
-<p>在 unix 系统中<code>fork</code>会创建一个新进程，<code>exec</code>能够用新的程序替换原本的内存空间。</p>
-<p>下面是一个Linux中<code>fork</code>的例子，子进程拷贝了一份父进程的地址空间，然后父进程等待了子进程的结束。</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">pid_t</span><span class="w">  </span><span class="n">pid</span><span class="p">;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="cm">/* fork another process */</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">();</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* error occurred */</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fork Failed&quot;</span><span class="p">);</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* child process */</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="n">execlp</span><span class="p">(</span><span class="s">&quot;/bin/ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* parent process */</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="cm">/* parent will wait for the child   to complete */</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="n">wait</span><span class="w"> </span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Child Complete&quot;</span><span class="p">);</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="_7">进程终结</h3>
-<p>进程执行了最后一条指令会让操作系统删除它，输出的数据会从子进程传到父进程（通过<code>wait</code>），进程的资源会被操作系统回收，父进程可以结束子进程(abort)，因为子进程超出了分配的资源或者任务不再被需要。如果父进程被结束，一些系统也不会允许其子进程存在，会引发级联删除，不过在有些系统子进程会被绑定到 init 进程上。</p>
-<h3 id="_8">协同进程</h3>
-<p>Independent process 不会影响或被其它进程影响，而 cooperating process 可以，然后就引出了经典的生产者-消费者问题(producer-consumer problem)，生产者进程能够产生供消费者消费的信息，我们有一个 buffer 来暂存这些信息：</p>
-<ul>
-<li>unbounded buffer：没有边界的 buffer，如果没有 item，消费者需要等待</li>
-<li>bounded buffer：有边界的 buffer，如果buffer满了，生产者必须等待</li>
-</ul>
-<p>我们用一个循环队列来表示 buffer（这里是有界的）,in 是队尾， out 是队首</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#define BUFFER_SIZE 10</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="p">.</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">item</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kt">int</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span></code></pre></div>
-<p>所以队列满了可以表示为 (in + 1) % BUFFER_SIZE == out，队列空了可以表示为 in == out</p>
-<h3 id="_9">进程间通信</h3>
-<p>Interprocess Communication(IPC)有两种模型：</p>
-<ul>
-<li>message passing，可以send(message)和recive(message)</li>
-<li>shared memory，两个进程可以向同一段存储读写</li>
-</ul>
-<p><img alt="" src="../images/ch3/communication_model.png" /></p>
-<h4 id="_10">直接交流</h4>
-<p>直接交流，需要显式声明对方的名称，比如：</p>
-<ul>
-<li><code>send(P,message)</code>：发一个消息给进程P</li>
-<li><code>receive(Q,message)</code>：接收一个来自进程Q的消息</li>
-</ul>
-<p>communication link 的性质：</p>
-<ol>
-<li>连接时自动建立的</li>
-<li>一个链接绑定到一对通信进程</li>
-<li>每一对通信进程存在一个链接</li>
-<li>链接可以是单向是，但通常是双向的</li>
-</ol>
-<h4 id="_11">非直接交流</h4>
-<p>非直接交流中消息还是定向的，但是是在 mailbox(port) 接收，每个信箱有自己的id，进程间只有在它们共享邮箱时可以通信。</p>
-<p>链接的性质：</p>
-<ul>
-<li>链接只会在进程共享公共邮箱的情况下建立</li>
-<li>一个链接可能被绑定到多个进程上</li>
-<li>一对进程之间可能有多个链接</li>
-<li>可以是单向的，也可以是双向的</li>
-</ul>
-<p>涉及到的操作有：</p>
-<ol>
-<li>创建一个新信箱</li>
-<li>通过邮箱发送和接收消息</li>
-<li>销毁一个邮箱</li>
-</ol>
-<p>原语定义为：</p>
-<ul>
-<li><code>send(A, message)</code>：发送一个消息到 mailbox A</li>
-<li><code>receive(A, message)</code>：从 mailbox A 接收一个消息</li>
-</ul>
-<h4 id="_12">同步</h4>
-<p>message passing 有可能是 blocking 或者 non-blocking的，blocking是synchronous，发消息者要等到消息被接收，接收者也要等到有消息；non-blocking是asynchronous，发送者发完就可以继续执行其它任务，接收者可以收到有效的或者空的消息。</p>
-<h4 id="buffering">buffering</h4>
-<p>绑定给链接的消息队列，以以下三种方法实现：</p>
-<ol>
-<li>zero capacity</li>
-<li>bounded capacity</li>
-<li>unbounded capacity</li>
-</ol>
-<h2 id="_13">线程</h2>
-<h3 id="_14">简介</h3>
-<p>为了提高系统响应性，需要将操作分的尽可能小，但是为了高效的执行，代码应该较大块地执行，更准确地说，我们希望能够调度更小的操作，这些枯燥的工作可以留给OS去完成，这就是线程。线程可以理解成更轻量级的进程，进程是资源分配的最小单位，而线程是调度的基本单位。</p>
-<p><img alt="" src="../images/ch3/thread.png" /></p>
-<p>线程可以共享进程的部分资源，包括代码、数据和文件等，但每个线程都有自己的寄存器和栈，栈本质是同一个，但是不同线程的sp指针的位置不同，只要找到地址就可以把值取出。</p>
-<h3 id="_15">线程管理</h3>
-<p>用户线程的管理由用户态线程库完成，内核线程由内核直接调度，现在的OS基本都实现了内核线程。如果只有用户线程，那么实际上OS调度的还是进程。</p>
-<h3 id="_16">多线程基本模型</h3>
-<ul>
-<li>many to one的模型将多个用户线程映射到一个内核线程，线程管理非常高效，但是在有线程进行系统调用时，其它线程也会 blocked，原因是OS并不知道有很多个线程，它一次只会调度一个线程</li>
-<li>one to one的模型将一个用户线程映射到一个内核线程，更高的并发，但是创建线程的开销会比较高</li>
-<li>many to many的模型将多个用户线程映射到多个内核线程，折中的方式使它更加灵活</li>
-</ul>
-<h3 id="two-level">Two level 模型</h3>
-<p>类似于many to many的模型，不过它允许一个用户态线程被绑定到一个内核线程上。</p>
-<p><img alt="" src="../images/ch3/two_level.png" /></p>
-<h3 id="_17">相关事务</h3>
-<h4 id="fork-exec">fork 与 exec</h4>
-<p><code>fork</code>一个进程，是会复制所有线程，还是只复制调用它的线程，一些Unix的系统拥有两种实现，而<code>exec</code>会替代整个进程。</p>
-<h4 id="_18">取消线程</h4>
-<p>在一个线程完成之前终止它，有两种通用的方法：</p>
-<ol>
-<li>Asynchronous cancellation 会立刻终止目标线程</li>
-<li>Deferred cancellation 允许一个线程在需要取消时，通过一个标志被周期性检查</li>
-</ol>
-<h4 id="singnal">Singnal</h4>
-<p>信号(singnals)在unix系统中用来通知一个进程特定事件发生了，使用一个信号控制器来处理信号，同步或者异步。信号由特定的事件产生，被传送给特定的进程，最终被处理。信号可以选择发给信号应用的线程、进程中的所有线程、进程中的特定线程或者是用一个专门的线程来接收进程所有信号。</p>
-<h4 id="_19">线程池</h4>
-<p>预先创建一系列的线程备用（类似于内存池，避免每次都去系统调用，从而可以节省开销），允许系统中线程的数量绑定到池大小。</p>
-<h4 id="thread-specific-data">Thread Specific Data</h4>
-<p>TLS(Thrwad Local Storage)允许每个线程都有自己专属的数据，和静态变量很像，但是对每个线程来说是独一无二的，在你没有对创建线程的控制的情况下很有用（比如用了线程池）</p>
-<h4 id="_20">调度器活动</h4>
-<p>many to many 和 two level都需要通知内核以维护恰当的内核线程数量，在许多系统中LWP(light-weight-process)充当了用户级线程和内核线程之间的桥梁，可以把它理解为比进程开销小，但比纯粹的用户级线程更直接地得到内核支持的执行单元。</p>
-<p>Scheduler Activations 提供了upcall机制能够从kerenl将信息传递到线程库，这种通信使得应用程序能够维持正确数量的内核线程,当一个应用程序线程即将阻塞时就会触发一个 upcall</p>
-<h2 id="cpu">CPU 调度</h2>
-<h3 id="_21">基本概念</h3>
+<h2 id="_1">基本概念</h2>
 <p>调度的对象是进程/线程，调度的资源是CPU，调度的目标是 Maximun CPU utilization obtained with multiprogramming </p>
 <p>CPU burst 往往是比较短的，所以调度算法使用的非常频繁，调度需要高效。CPU 调度需要从 Ready 的进程中选一个来执行，CPU 调度发生在：</p>
 <ol>
@@ -4942,7 +4226,7 @@
 <p>在多线程编程中，dispatch 一般指将一个任务分配给一个可用线程去执行的过程</p>
 </blockquote>
 <p>dispatcher（调度程序）将CPU的控制交给被短期调度器选中的进程，先切换上下文，然后返回用户态，最后跳转到正确的地方继续执行程序，这个过程存在 dispatchaer latency</p>
-<h3 id="_22">调度目标</h3>
+<h3 id="_2">调度目标</h3>
 <ul>
 <li>Max CPU utilzation</li>
 <li>Max throughout（单位时间完成的线程数量）</li>
@@ -4950,6 +4234,7 @@
 <li>Min waiting time（进程在ready queue中等待的时间）</li>
 <li>Min response time（从请求被提交到产生首个响应之间的时间，相当于用户感到自己的请求被处理的时间）</li>
 </ul>
+<h2 id="_3">调度算法</h2>
 <h3 id="fcfs">FCFS</h3>
 <p>First-Come, First-Served（先来先服务）顾名思义是先处理最早到达的请求，即一个典型的 queue</p>
 <blockquote>
@@ -5039,7 +4324,7 @@
 </ul>
 <p><img alt="" src="../images/ch3/multilevel_feedback_queue.png" /></p>
 <p>上图中Q0，Q1和Q2都是FCFS，但是在Q0中运行只有8s的时间片，在Q1中运行只有16s的时间片</p>
-<h3 id="_23">多处理器调度</h3>
+<h3 id="_4">多处理器调度</h3>
 <blockquote>
 <p>处理器和CPU还是有差距，比如可以两个CPU在一个主板上，共享L2Cache</p>
 </blockquote>
@@ -5048,7 +4333,7 @@
 <li>ASMP(Asymmetric multiprocessing)：只有一个处理器访问系统的数据结构进行调度，其它的处理器都只执行用户代码</li>
 <li>SMP(Symmetric multiprocessing)：每个处理器自己调度自己，多处理器可能访问和更新共同的数据结构</li>
 </ul>
-<h3 id="_24">实时调度</h3>
+<h3 id="_5">实时调度</h3>
 <p>实时调度器的目标是保证任务在它们的ddl内完成，表现评估的标准是可预测性和可靠性，而不是平均吞吐量和平均周转时间。实时系统可以分为：</p>
 <ul>
 <li>Hard real-time system：必须在规定时间内完成任务</li>
@@ -5058,7 +4343,7 @@
 - Earliest Deadline First（最早截止时间优先）
 - Least Laxity First（最低松弛度优先），松弛度是除去完成这个任务还剩余的时间
 - Rate Monotonic Scheduling（速率单调调度），基于任务周期来分配优先级，周期越短的任务优先级越高</p>
-<h3 id="_25">线程调度</h3>
+<h3 id="_6">线程调度</h3>
 <p>也叫 Contention Scope，其实就是用户态和内核态的调度：</p>
 <ul>
 <li>local scheduling：线程库决定线程放入可用的 LWP（many to one）</li>
@@ -5086,7 +4371,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 8, 2025 15:18:04 UTC">December 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 14, 2025 11:39:46 UTC">December 14, 2025</span>
   </span>
 
     
@@ -5096,7 +4381,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 8, 2025 15:18:04 UTC">December 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 14, 2025 11:39:46 UTC">December 14, 2025</span>
   </span>
 
     
