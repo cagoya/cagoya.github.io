@@ -2598,92 +2598,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    操作系统
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    操作系统
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/ch2_%E5%86%85%E5%AD%98/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    内存
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -3876,7 +3790,7 @@
   <span class="md-ellipsis">
     
   
-    Ch8 文件系统
+    文件系统
   
 
     
@@ -4723,8 +4637,7 @@
 <h2 id="_2">基本概念</h2>
 <h3 id="_3">定义</h3>
 <p>操作系统是用户和硬件的媒介，目标是执行用户的程序，让解决用户问题更简单,和使计算机系统方便使用。操作系统的层级如下图所示，可以有多个用户（Linux是真支持同时多用户，Win和Mac不是）使用。操作系统在系统和应用程序之下工作，严格意义上的操作系统就是指操作系统内核。</p>
-<center><img src="images/ch0/OS层级.png" width=450></center>
-
+<p><img alt="" src="../images/ch0/OS%E5%B1%82%E7%BA%A7.png" /></p>
 <p>操作系统是不存在统一的定义，可以大概等价操作系统厂商给你的东西
 ，一直在运行的是操作系统内核(kernel)，其它的最多都只能算系统软件。在电脑开机和重启时，需要先加载 bootstrap program，它通常保存在 ROM 或者 EPROM 中，作用是初始化系统，加载操作系统内核，然后从固定位置开始执行。</p>
 <h3 id="_4">组织</h3>
@@ -4760,19 +4673,16 @@
 <h3 id="cpu">多CPU架构</h3>
 <h4 id="smp">SMP</h4>
 <p>SMP(Symmetric Multiprocessing)，每个CPU有自己的寄存器和Cache，所有CPU共享主存，从图上看是对称的</p>
-<center><img src="images/ch0/SMP.png" width=300></center>
-
+<p><img alt="" src="../images/ch0/SMP.png" /></p>
 <p>此外，可以把两个CPU放在同一个主板上，共享L2 Cache，这样开销更小</p>
-<center><img src="images/ch0/SMP1.png" width=300></center>
-
+<p><img alt="" src="../images/ch0/SMP1.png" /></p>
 <h4 id="numa">NUMA</h4>
 <ul>
 <li>不同CPU通过共享的 system interconnect 连接</li>
 <li>在处理器不断增多的情况下扩展起来是高效的</li>
 <li>通过interconnect进行远程内存访问是较慢的</li>
 </ul>
-<center><img src="images/ch0/NUMA.png" width=300></center>
-
+<p><img alt="" src="../images/ch0/NUMA.png" /></p>
 <h3 id="_7">分类</h3>
 <p>这里需要区分 Multiprogramming 和 Multitasking 这两个概念。</p>
 <p><strong>Multiprogamming</strong> 是为了<strong>提高CPU利用率</strong>，因为单一用户并不能保证CPU任意时间都在运行，multiprogamming通过组织任务（多个程序同时在内存中）保证CPU持续工作，当一个任务需要IO时，CPU可以去处理其它任务。</p>
@@ -4802,8 +4712,7 @@
 <li>最上层：应用程序</li>
 </ol>
 <p>用户API提供了进一步的抽象，比如C的<code>fopen</code>可以在Windows或Linux上使用，但由各自平台的标准库实现去调用对应的系统调用。</p>
-<center><img src="images/ch0/api.png" width=400></center>
-
+<p><img alt="" src="../images/ch0/api.png" /></p>
 <p>系统调用相当于是执行了一个内核态的函数，故需要传递对应的参数，这里有三种方式传参：</p>
 <ol>
 <li>寄存器</li>
@@ -4840,22 +4749,18 @@
 <p>外核(Exokernel)是指高度简化kernel，只负责资源分配和提供低级硬件操作，必须通过定制library供应用使用，高性能但兼容性差，所以工业界不可能用。</p>
 <h4 id="unikernel">Unikernel</h4>
 <p>Unikernel 是指将kernel当做库，静态链接到需要的地方</p>
-<center><img src="images/ch0/unikernel.png" width=400></center>
-
+<p><img alt="" src="../images/ch0/unikernel.png" /></p>
 <h4 id="_19">例子</h4>
 <p>MS DOS 没有模块划分，以最少的空间提供最多的功能</p>
-<center><img src="images/ch0/MS_DOS.png" width=300></center>
-
+<p><img alt="" src="../images/ch0/MS_DOS.png" /></p>
 <p>Unix 被硬件限制住了结构，只有独立的两层：</p>
 <ol>
 <li>System Program</li>
 <li>The kernel：包含系统调用之下，硬件之上的所有内容</li>
 </ol>
-<center><img src="images/ch0/unix.png" width=300></center>
-
+<p><img alt="" src="../images/ch0/unix.png" /></p>
 <p>Darwin（mac和ios的底层）使用的是混合架构（微内核和宏内核），Mash 是微内核，BSD 是宏内核</p>
-<center><img src="images/ch0/darwin.png" width=300></center>
-
+<p><img alt="" src="../images/ch0/darwin.png" /></p>
 <h2 id="_20">虚拟机</h2>
 <p>虚拟机(Virtual Machine)将真实硬件和操作系统内核都视为硬件，为底下的裸机提供了独立的接口。Hypervisor 是虚拟机和底层物理硬件之间的中介，主要有两种：</p>
 <ol>
@@ -4886,7 +4791,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 20, 2025 13:16:14 UTC">December 20, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 20, 2025 13:30:51 UTC">December 20, 2025</span>
   </span>
 
     
@@ -4896,7 +4801,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 20, 2025 13:16:14 UTC">December 20, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 20, 2025 13:30:51 UTC">December 20, 2025</span>
   </span>
 
     
