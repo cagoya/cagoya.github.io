@@ -8,7 +8,7 @@
 
 操作系统是用户和硬件的媒介，目标是执行用户的程序，让解决用户问题更简单,和使计算机系统方便使用。操作系统的层级如下图所示，可以有多个用户（Linux是真支持同时多用户，Win和Mac不是）使用。操作系统在系统和应用程序之下工作，严格意义上的操作系统就是指操作系统内核。
 
-<center><img src="images/ch0/OS层级.png" width=450></center>
+![](images/ch0/OS层级.png)
 
 操作系统是不存在统一的定义，可以大概等价操作系统厂商给你的东西
 ，一直在运行的是操作系统内核(kernel)，其它的最多都只能算系统软件。在电脑开机和重启时，需要先加载 bootstrap program，它通常保存在 ROM 或者 EPROM 中，作用是初始化系统，加载操作系统内核，然后从固定位置开始执行。
@@ -64,11 +64,11 @@ DMA(Direct Memory Access)是指设备控制器不经过CPU直接将 local storag
 
 SMP(Symmetric Multiprocessing)，每个CPU有自己的寄存器和Cache，所有CPU共享主存，从图上看是对称的
 
-<center><img src="images/ch0/SMP.png" width=300></center>
+![](images/ch0/SMP.png)
 
 此外，可以把两个CPU放在同一个主板上，共享L2 Cache，这样开销更小
 
-<center><img src="images/ch0/SMP1.png" width=300></center>
+![](images/ch0/SMP1.png)
 
 #### NUMA
 
@@ -76,7 +76,7 @@ SMP(Symmetric Multiprocessing)，每个CPU有自己的寄存器和Cache，所有
 - 在处理器不断增多的情况下扩展起来是高效的
 - 通过interconnect进行远程内存访问是较慢的
 
-<center><img src="images/ch0/NUMA.png" width=300></center>
+![](images/ch0/NUMA.png)
 
 ### 分类
 
@@ -122,7 +122,7 @@ CLI 和 GUI 相比更加精准，CLI在内核或者系统程序实现的，也�
 
 用户API提供了进一步的抽象，比如C的`fopen`可以在Windows或Linux上使用，但由各自平台的标准库实现去调用对应的系统调用。
 
-<center><img src="images/ch0/api.png" width=400></center>
+![](images/ch0/api.png)
 
 系统调用相当于是执行了一个内核态的函数，故需要传递对应的参数，这里有三种方式传参：
 
@@ -173,24 +173,24 @@ CLI 和 GUI 相比更加精准，CLI在内核或者系统程序实现的，也�
 
 Unikernel 是指将kernel当做库，静态链接到需要的地方
 
-<center><img src="images/ch0/unikernel.png" width=400></center>
+![](images/ch0/unikernel.png)
 
 #### 例子
 
 MS DOS 没有模块划分，以最少的空间提供最多的功能
 
-<center><img src="images/ch0/MS_DOS.png" width=300></center>
+![](images/ch0/MS_DOS.png)
 
 Unix 被硬件限制住了结构，只有独立的两层：
 
 1. System Program
 2. The kernel：包含系统调用之下，硬件之上的所有内容
 
-<center><img src="images/ch0/unix.png" width=300></center>
+![](images/ch0/unix.png)
 
 Darwin（mac和ios的底层）使用的是混合架构（微内核和宏内核），Mash 是微内核，BSD 是宏内核
 
-<center><img src="images/ch0/darwin.png" width=300></center>
+![](images/ch0/darwin.png)
 
 ## 虚拟机
 

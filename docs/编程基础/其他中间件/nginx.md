@@ -4,7 +4,7 @@
 
 Nginx(音同Engine x)，是一个高性能反向代理和Web服务软件，其源代码基于双条款BSD发布，因其资源消耗低、运行稳定且具有高并发处理能力，Nginx在互联网企业中得到广泛应用。
 
-<center><img src="images/nginx.png" width=250></center>
+![](images/nginx.png)
 
 ## 功能
 

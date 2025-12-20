@@ -43,7 +43,7 @@
 
 基址(base)寄存器和限长(limit)寄存器定义了逻辑地址空间：
 
-<center><img src="images/ch6/base_limit.png" width=200></center>
+![](images/ch6/base_limit.png)
 
 - 逻辑地址空间指的是CPU生成的空间
 - 物理地址空间指的是MMU能看到的地址
@@ -54,7 +54,7 @@
 
 MMU(Memoey Management Unit)是负责映射虚拟地址到物理地址的硬件设备，在MMU机制下，在访问内存前，可重定位寄存器的值会被添加到每个由用户进程生成的地址上（这是最简单的虚拟内存机制，实际没有这么简单）。
 
-<center><img src="images/ch6/relocation_reg.png" width=300></center>
+![](images/ch6/relocation_reg.png)
 
 用户进程只能处理逻辑地址，它永远不可能看见真实的物理地址。
 
@@ -86,7 +86,7 @@ MMU(Memoey Management Unit)是负责映射虚拟地址到物理地址的硬件�
 
 OS运行在内核态，被赋予了对OS内存和用户内存不受限的访问权限。
 
-<center><img src="images/ch6/limit_relocation.png" width=400></center>
+![](images/ch6/limit_relocation.png)
 
 !!!question 为什么不用软件实现limit reg和relocation reg？
     因为访问内存是非常普遍的操作，使用软件效率太低，而且软件不够安全。
@@ -102,7 +102,7 @@ OS运行在内核态，被赋予了对OS内存和用户内存不受限的访问�
 
 固定分区就是把每个分区的大小提前划分好
 
-<center><img src="images/ch6/fixed_partition.png" width=150></center>
+![](images/ch6/fixed_partition.png)
 
 动态分区是在程序装入内存时把可用内存“切出”一个连续的区域分配给该进程，且分区大小正好适合进程的需要（实际不一定是刚刚好，一般会稍微多分配点）：
 
@@ -110,7 +110,7 @@ OS运行在内核态，被赋予了对OS内存和用户内存不受限的访问�
 - 当有进程抵达时，它会被分配足够容纳它的内存
 - OS维护已分配的分区和空闲分区(hole)的信息
 
-<center><img src="images/ch6/dynamic_partition.png" width=400></center>
+![](images/ch6/dynamic_partition.png)
 
 上面说了hole是散布在内存中的，所以需要选择一块合适的给抵达的进程，一般情况OS维护的空洞信息可以看做是一个线性表，有三种选择算法（在ads装箱问题中学过，此处不赘述）：
 
@@ -162,7 +162,7 @@ OS运行在内核态，被赋予了对OS内存和用户内存不受限的访问�
 - 页号(page number)：用作在页表中的索引，包含了每一页在物理内存中的基地址
 - 页偏移(page fault)：与基址组合以确定实际物理地址
 
-<center><img src="images/ch6/page.png" width=250></center>
+![](images/ch6/page.png")
 
 实现分页的硬件如下：
 
@@ -171,7 +171,7 @@ OS运行在内核态，被赋予了对OS内存和用户内存不受限的访问�
 - 页表长度寄存器(page-table length register)指示页表的大小
 - 访问数据/指令需要两次内存访问，一次访问页表，另一次才是访问数据/指令
 
-<center><img src="images/ch6/paging.png" width=450></center>
+![](images/ch6/paging.png)
 
 !!!question 给定页表的信息如下
     问虚地址2362H、1565H的物理地址分别是多少？（注：H表示Hex，即十六进制）
@@ -187,11 +187,11 @@ OS运行在内核态，被赋予了对OS内存和用户内存不受限的访问�
 
 为了减少访问时间，引入一种特殊的快速查找硬件缓存(fast-lookup hardware cache)，称作TLB(translation look-aside buffer)，某些TLB在每个Entry中存储了ASID(address-space identifier)用于唯一标识每个进程来为进程提供地址空间保护。TLB 支持并发查找，如果没在TLB中找到才去页表中找。
 
-<center><img src="images/ch6/TLB.png" width=300></center>
+![](images/ch6/TLB.png)
 
 在引入TLB后的地址翻译硬件如下：
 
-<center><img src="images/ch6/paging_TLB.png" width=450></center>
+![](images/ch6/paging_TLB.png)
 
 定义Effective Access Time(EAT) = $(1+\epsilon)\alpha + (2+\epsilon)(1-\alpha)=2+\epsilon-\alpha $，其中$\alpha $代表命中率(hit ratio)，$\epsilon $代表访问TLB的时间。
 
@@ -210,7 +210,7 @@ OS运行在内核态，被赋予了对OS内存和用户内存不受限的访问�
 
 页表也在内存中，可以对页表所在内存建立页表，即多级页表，本质是一种类似基数树(radix-tree)的结构。Linux使用四级页表，Windows(32位)使用的二级页表。下面是一个二级页表的示例：
 
-<center><img src="images/ch6/two_level_pt.png" width=400></center>
+![](images/ch6/two_level_pt.png)
 
 一个逻辑地址(32位)被分为：
 
@@ -257,7 +257,7 @@ Roll out和roll in是交换在优先级调度算法的变体，可以将低优�
 
 段(Segment)是指支持用户视图的内存管理机制，程序可以看做段的集合，段是一个逻辑单元(比如主程序、函数、本地变量、全局变量、栈...)
 
-<center><img src="images/ch6/segment.png" width=300></center>
+![](images/ch6/segment.png)
 
 逻辑地址现在可以写成`<segment-number, offset>`
 

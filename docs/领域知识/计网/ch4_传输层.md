@@ -62,7 +62,7 @@ UDP的首部只有8B，由4个字段组成，每个字段的长度都是2B，各
 
 接收方的传输层在收到UDP报文后，会查看目的端口将其上交给应用层对应程序，如果发现不存在对应进程，则由ICMP发送”端口不可达“差错报文给发送方。
 
-<center><img src="images/ch4/UDP.png" width=300></center>
+![](images/ch4/UDP.png)
 
 ### 校验
 
