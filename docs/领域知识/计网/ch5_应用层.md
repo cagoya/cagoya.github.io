@@ -46,3 +46,9 @@ DNS 是一个分层的系统，从上到下依次有：
 4. MX(Mail Exchange)：声明用来为特定域名接收邮件的域名
 5. NS(Name of a server for this domain)：声明用于域名和子域名的服务器
 6. CNAME(Canonical Name)：为域名创建别名
+
+## SMTP
+
+## WWW
+
+## FTP
