@@ -1,6 +1,6 @@
-# 逻辑链路控制子层
+# 链路层1
 
-!!!warning llc和mac到底谁在上层？
+!!!warning "llc和mac到底谁在上层？"
       和授课顺序不同，正确的关系应该是llc在mac之上
 
 ## 逻辑链路控制
@@ -9,7 +9,7 @@
 
 以帧（frame）的形式传输来自网络层从源机器到目标机器的数据
 
-![](images/ch2/dl.png)
+![](images/ch2/dl.png){width="400"}
 
 ### 服务分类
 
@@ -23,15 +23,15 @@
 
 1. 字节计数法(Byte Count)：在header中包含一个字段声明字节数，但是存在失去同步的问题，所以一般不会采用
 
-![](images/ch2/byte_count.png)
+![](images/ch2/byte_count.png){width="400"}
 
 2. 标志字节法(Flag Byte)：使用特殊的字节(Flag Byte)来标识帧的首尾，为了避免混淆数据位和标志位需要引入 ESC 转义
 
-![](images/ch2/flag_byte.png)
+![](images/ch2/flag_byte.png){width="400"}
 
 3. 零比特填充法：可以使用特殊的比特组合来作为标志，比如0111 1110，需要在数据位中的连续5个1后插入0，以避免出现连续的6个1，在接收数据时复原
 
-![](images/ch2/bit_stuffing.png)
+![](images/ch2/bit_stuffing.png){width="400"}
 
 4. 违规编码法：使用物理层编码规则中的保留组合来作为标志符，这样没有转义的开销，但是这样存在与物理层的耦合
 
@@ -94,11 +94,11 @@ Hamming Code的算法不止一种，本质是相通的，推荐wiki上的算法�
   - 第二位是对输入，S1，S2，S3，S6求和
 - 每输出一次移位寄存器右移一位，输入的值移入S1
 
-![](images/ch2/conventional_code.png)
+![](images/ch2/conventional_code.png){width="400"}
 
 解码使用维特比算法，这是一个最大似然算法，找出出错最少的路径。可以分为硬抉择和软抉择。
 
-![](images/ch2/viterbi.png)
+![](images/ch2/viterbi.png){width="400"}
 
 #### Reed-Soloman Code
 
@@ -120,7 +120,7 @@ CRC会考计算，发送者和接受者会约定一个$r$比特的生成多项�
 - 用$x^rM(x) $除以$G(x) $，使用模2除法
 - 用模2减法算出余数，作为校验和帧（商不重要）
 
-![](images/ch2/CRC.png)
+![](images/ch2/CRC.png){width="400"}
 
 ## 流量控制与可靠传输
 
@@ -165,7 +165,7 @@ GBN允许累积确认，接收方可以在连续收到多个确认帧后，对�
 
 若使用n bit对帧进行编号，则其发送窗口应满足$1<W_T\leq 2^n-1 $，否则将造成接收方无法分辨新旧数据帧。
 
-![](images/ch2/GBN.png)
+![](images/ch2/GBN.png){width="500"}
 
 #### 选择重传协议
 
@@ -173,7 +173,7 @@ GBN允许累积确认，接收方可以在连续收到多个确认帧后，对�
 
 不能使用累积确认，必须对每个数据帧分别确认，接收方需要设置足够的帧缓冲区来暂存那些失序但正确到达且序号落在接收窗口内的数据帧，然后发送方对每个帧超时重传。此外，选择重传协议引入了否定帧（NAK），当接收方检测到某个数据帧错误时，可以立即发送一个NAK，发送方收到NAK后会立刻重传对应的帧。
 
-![](images/ch2/SR.png)
+![](images/ch2/SR.png){width="500"}
 
 选择重传协议的窗口大小需要满足：
 

@@ -130,7 +130,7 @@ Dijkstra 算法在找到最短路径后，只知道最短路径上的前继节�
 
 随着网络规模的不断扩大，如果每个路由器都需要维护全部路由信息，会消耗极大的存储空间，并且路由算法实际也难以工作，因而需要层级路由。
 
-![](images/ch3/hierachical.png)
+![](images/ch3/hierachical.png){width="500"}
 
 ## 路由模式
 
@@ -203,7 +203,7 @@ IPv4和IPv6并不兼容，一种解决方案是将IPv4数据报封装在IPv6数�
 
 ### IPv4
 
-!!!tip 为什么只有v4和v6，其它版本呢？
+!!!tip "为什么只有v4和v6，其它版本呢？"
     其实是有的，只是这些版本都没有被推广过，比如v0~v3都是试验版本，甚至当时TCP和IP都还没有分开。
 
 #### header
@@ -262,13 +262,13 @@ IP地址最开始是按照一定规则进行了分类，但这样做有两大问
 1. 内部网络的机器发出一个到外部网络的请求，这个请求由代理机转发，同时为它分配一个映射
 2. 外部网络的请求在发往本网络时，根据NAT定位到具体机器
 
-![](images/ch3/NAT.png)
+![](images/ch3/NAT.png){width="400"}
 
 显然，NAT存在一些问题：外部网络无法直接找到内部网络的主机（需要内部主机主动发起连接），并且NAT违反了分层原则，需要查看传输层的端口号信息。
 
 规定以下地址为内网地址，这也是日常使用`ifconfig`显示出的ip地址
 
-![](images/ch3/private_address.png)
+![](images/ch3/private_address.png){width="400"}
 
 ### IPv6
 
@@ -276,7 +276,7 @@ IPv6 设计出来用于解决IPv4地址空间不足的问题，有128位地址�
 
 IPv6 header 是定长的，为40B
 
-![](images/ch3/IPv6.png)
+![](images/ch3/IPv6.png){width="400"}
 
 1. **Version**：IP协议的版本号（IPv6为6）
 2. **Differentiated services**：区分服务字段，类似IPv4
@@ -302,7 +302,7 @@ ARP(Address Resolution Protocol)用于将IP地址映射到MAC地址。当主机�
 
 ### DHCP
 
-!!!warning DHCP 工作在应用层
+!!!warning "DHCP 工作在应用层"
     虽然是在网络层讲的DHCP，但它其实工作在应用层，毕竟它都用到了UDP
 
 DHCP(Dynamic Host Configuration Protocol)使用DHCP服务器为网络中的主机动态分配IP地址（以下均认为是广播）：
@@ -318,7 +318,7 @@ Leasing(租约)：为了避免过高的开销，IP地址并不会频繁变更，
 
 MPLS(MultiProtocol Label Switching)在每个包之前添加了一个标签，然后根据标签而不是地址进行转发，在LSR(Label Switching Router)中使用内部表记录每个标签和对应输出路线的映射，以及接下来将使用的新标签。
 
-![](images/ch3/MPLS.png)
+![](images/ch3/MPLS.png){width="400"}
 
 ## 路由协议
 
