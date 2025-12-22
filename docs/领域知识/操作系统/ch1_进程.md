@@ -23,11 +23,11 @@
 - heap(dynamically allocated memory)
 - program counter
 
-![](images/ch1/地址空间.png)
+![](images/ch1/地址空间.png){width="400"}
 
 ### 进程状态
 
-!!!note 什么情况下会到 waiting？
+!!!note "什么情况下会到 waiting？"
     到waiting都是主动停止执行的，被动停止执行是到ready态
 
 进程在执行中会改变状态，其可能的状态有：
@@ -38,7 +38,7 @@
 - 等待(waiting/blocked)：进程在等待一些事件
 - 结束(terminated)：进程结束执行
 
-![](images/ch1/状态图.png)
+![](images/ch1/状态图.png){width="500"}
 
 ### 进程控制块
 
@@ -53,7 +53,7 @@
 
 在切换进程时实际是切换PCB，将当前进程的PCB保存，加载新进程的PCB
 
-![](images/ch1/进程切换.png)
+![](images/ch1/进程切换.png){width="400"}
 
 ## 进程调度
 
@@ -65,7 +65,7 @@
 - Ready queue：已经在主存中等待执行的进程
 - Device queue：等待I/O的进程
 
-![](images/ch1/queue_diagram.png)
+![](images/ch1/queue_diagram.png){width="400"}
 
 ### 调度器
 
@@ -221,7 +221,7 @@ while(true) {
 - 消息传递(message passing)：提供两种操作`send(message)`和`receive(message)`
 - 共享内存(shared memory)
 
-![](images/ch1/共享内存_消息传递.png)
+![](images/ch1/共享内存_消息传递.png){width="400"}
 
 这里主要讨论消息传递
 
