@@ -72,7 +72,7 @@
 
 ### 效率
 
-定义Effective Access Time = (1-p)$\times $memory access + p$\times $(page fault overhead + swap page out + swap page in + restart overhead)，其中p是缺页率
+定义Effective Access Time = (1-p)$\times$ memory access + p $\times$ (page fault overhead + swap page out + swap page in + restart overhead)，其中p是缺页率
 
 ## 页面置换算法
 
