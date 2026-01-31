@@ -9,7 +9,7 @@ docker pull redis:latest
 docker run -d --name redis -p 6379:6379 redis
 ```
 
-![](images/redis.png)
+![](./images/redis.png)
 
 ### 配置
 

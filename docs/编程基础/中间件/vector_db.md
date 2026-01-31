@@ -6,7 +6,7 @@
 
 常见的向量数据如下图所示：
 
-![](images/vector_db.png)
+![](./images/vector_db.png)
 
 ## qdrant
 
