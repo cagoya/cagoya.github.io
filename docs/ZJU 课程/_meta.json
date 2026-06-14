@@ -1,0 +1,28 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "课程总览"
+  },
+  {
+    "type": "dir",
+    "name": "专业必修课",
+    "label": "专业必修课",
+    "collapsible": true,
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "专业选修课",
+    "label": "专业选修课",
+    "collapsible": true,
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "其他课程",
+    "label": "其他课程",
+    "collapsible": true,
+    "collapsed": false
+  }
+]

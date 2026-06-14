@@ -1,0 +1,32 @@
+[
+  {
+    "type": "file",
+    "name": "0.Python简介",
+    "label": "Python 简介"
+  },
+  {
+    "type": "file",
+    "name": "1.内置类型",
+    "label": "内置类型"
+  },
+  {
+    "type": "file",
+    "name": "2.文件与异常",
+    "label": "文件与异常"
+  },
+  {
+    "type": "file",
+    "name": "3.函数",
+    "label": "函数"
+  },
+  {
+    "type": "file",
+    "name": "4.面向对象",
+    "label": "面向对象"
+  },
+  {
+    "type": "file",
+    "name": "5.杂项",
+    "label": "杂项"
+  }
+]

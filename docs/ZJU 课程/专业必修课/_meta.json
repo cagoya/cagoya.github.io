@@ -1,0 +1,37 @@
+[
+  {
+    "type": "file",
+    "name": "CSP",
+    "label": "CSP"
+  },
+  {
+    "type": "file",
+    "name": "DB",
+    "label": "DB"
+  },
+  {
+    "type": "file",
+    "name": "DM",
+    "label": "DM"
+  },
+  {
+    "type": "file",
+    "name": "FSE",
+    "label": "FSE"
+  },
+  {
+    "type": "file",
+    "name": "OOP",
+    "label": "OOP"
+  },
+  {
+    "type": "file",
+    "name": "ads",
+    "label": "ADS"
+  },
+  {
+    "type": "file",
+    "name": "fds",
+    "label": "FDS"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "type": "file",
+    "name": "CG",
+    "label": "CG"
+  },
+  {
+    "type": "file",
+    "name": "CTF101",
+    "label": "CTF101"
+  },
+  {
+    "type": "file",
+    "name": "NA",
+    "label": "NA"
+  },
+  {
+    "type": "file",
+    "name": "信安原",
+    "label": "信安原"
+  },
+  {
+    "type": "file",
+    "name": "计算医疗",
+    "label": "计算医疗"
+  },
+  {
+    "type": "file",
+    "name": "软测",
+    "label": "软测"
+  },
+  {
+    "type": "file",
+    "name": "软需",
+    "label": "软需"
+  }
+]

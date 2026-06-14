@@ -1,5 +1,3 @@
-# README
+# Nana's Notebook
 
-## Introduction
-
-TO BE COMPLETE
+TO BE COMPLETED

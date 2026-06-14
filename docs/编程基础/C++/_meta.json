@@ -1,0 +1,27 @@
+[
+  {
+    "type": "file",
+    "name": "1_C++开发工具",
+    "label": "开发工具"
+  },
+  {
+    "type": "file",
+    "name": "2_面向对象",
+    "label": "面向对象"
+  },
+  {
+    "type": "file",
+    "name": "3_模版",
+    "label": "模板"
+  },
+  {
+    "type": "file",
+    "name": "4_C++杂项",
+    "label": "杂项"
+  },
+  {
+    "type": "file",
+    "name": "5_标准库拾遗",
+    "label": "标准库拾遗"
+  }
+]

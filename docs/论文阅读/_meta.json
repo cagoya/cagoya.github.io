@@ -1,0 +1,21 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "论文阅读总览"
+  },
+  {
+    "type": "dir",
+    "name": "DDPM",
+    "label": "DDPM",
+    "collapsible": true,
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "MedicalAI",
+    "label": "Medical AI",
+    "collapsible": true,
+    "collapsed": false
+  }
+]

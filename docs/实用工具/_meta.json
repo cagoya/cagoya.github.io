@@ -1,0 +1,37 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "工具总览"
+  },
+  {
+    "type": "file",
+    "name": "CMake",
+    "label": "CMake"
+  },
+  {
+    "type": "file",
+    "name": "Latex",
+    "label": "LaTeX"
+  },
+  {
+    "type": "file",
+    "name": "docker",
+    "label": "Docker"
+  },
+  {
+    "type": "file",
+    "name": "git",
+    "label": "Git"
+  },
+  {
+    "type": "file",
+    "name": "gnu make",
+    "label": "GNU Make"
+  },
+  {
+    "type": "file",
+    "name": "typst",
+    "label": "Typst"
+  }
+]

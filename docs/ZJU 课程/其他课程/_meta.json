@@ -1,0 +1,42 @@
+[
+  {
+    "type": "file",
+    "name": "C programming",
+    "label": "C Programming"
+  },
+  {
+    "type": "file",
+    "name": "Caculus",
+    "label": "Calculus"
+  },
+  {
+    "type": "file",
+    "name": "Linear Algebra",
+    "label": "Linear Algebra"
+  },
+  {
+    "type": "file",
+    "name": "PTMS",
+    "label": "PTMS"
+  },
+  {
+    "type": "file",
+    "name": "Physics",
+    "label": "Physics"
+  },
+  {
+    "type": "file",
+    "name": "会计学",
+    "label": "会计学"
+  },
+  {
+    "type": "file",
+    "name": "汇编语言设计基础",
+    "label": "汇编语言设计基础"
+  },
+  {
+    "type": "file",
+    "name": "量子算法",
+    "label": "量子算法"
+  }
+]

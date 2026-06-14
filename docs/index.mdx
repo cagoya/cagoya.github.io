@@ -1,0 +1,189 @@
+---
+pageType: custom
+---
+
+export const todos = [
+  { text: 'ZJU 课程：更新大二下课程经验总结', done: true },
+  { text: '计算机网络（暑假）', done: false },
+  { text: '操作系统（暑假）', done: false },
+  { text: '扩散模型论文阅读（持续更新）', done: false },
+];
+
+export const recommendations = [
+  {
+    title: 'CS 自学指南',
+    href: 'https://csdiy.wiki/',
+    description: '很全的 CS 优质课程推荐',
+  },
+  {
+    title: 'ZJU-CS-ALL-IN-ONE',
+    href: 'https://isshikihugh.github.io/zju-cs-asio/',
+    description: 'ZJU CS 的优秀博客汇总',
+  },
+  {
+    title: 'cppreference',
+    href: 'https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5',
+    description: 'C/C++ 语法的详细参考',
+  },
+];
+
+export const contentSections = [
+  {
+    title: 'ZJU 课程',
+    href: '/ZJU 课程/',
+    description: '课程体验、复习资料和专业课学习记录。',
+  },
+  {
+    title: '编程基础',
+    href: '/编程基础/',
+    description: '语言基础、数据库、中间件和工程实践备忘。',
+  },
+  {
+    title: '论文阅读',
+    href: '/论文阅读/',
+    description: '扩散模型、Medical AI 等方向的论文脉络梳理。',
+  },
+  {
+    title: '实用工具',
+    href: '/实用工具/',
+    description: 'Git、Docker、CMake、LaTeX、Typst 等工具记录。',
+  },
+];
+
+export const highlights = [
+  { label: '身份', value: 'ZJU 软件工程本科' },
+  { label: '方向', value: '扩散模型与工程实践' },
+  { label: '内容', value: '课程笔记 / 论文阅读 / 工具记录' },
+];
+
+export const friendLinks = [
+  {
+    title: 'mem的小站',
+    href: 'https://mem.ac/',
+    avatar: 'https://mem.ac/static/a6cef06ac3267a5705afaaf9092d0c47/e8b76/avatar-8x.png',
+    description: '在海月的虚空中，纵身飞过秋凉的时鸟。',
+    tag: 'Blog',
+  },
+  {
+    title: '虚的小屋',
+    href: 'https://jokerxuxu.github.io/',
+    avatar: 'https://jokerxuxu.github.io/medias/logo.png',
+    description: '一帆一江一渔舟，一蓑烟雨一钓翁。一俯一仰一场笑，一江明月一江秋。',
+    tag: 'Personal Site',
+  },
+  {
+    title: 'memory of fish',
+    href: 'https://memoryoffish.github.io/',
+    avatar: 'https://memoryoffish.github.io/images/avatar.jpg',
+    description: '一只躺平的小丑鱼',
+    tag: 'Notes',
+  },
+  {
+    title: 'A Boat With Flow',
+    href: 'https://www.aboatwithflow.top/',
+    avatar: 'https://s1.imagehub.cc/images/2025/01/21/9641b040152d0a3ac28b450329a725f4.jpg',
+    description: '你是我的我是你的谁！',
+    tag: 'Friend',
+  },
+];
+
+<section className="home-page">
+  <section className="home-hero">
+    <div className="home-hero-copy">
+      <p className="home-eyebrow">Nana's Notebook</p>
+      <h1>一些学习、实验和想法的记录。</h1>
+      <p className="home-intro">
+        浙江大学软件工程专业本科在读，目前主要关注
+        <a href="/论文阅读/DDPM/">
+          扩散模型，也会整理课程笔记、论文阅读和日常工程经验。
+        </a>
+      </p>
+      <div className="home-hero-actions">
+        <a className="home-primary-link" href="/论文阅读/">
+          阅读论文笔记
+        </a>
+        <a className="home-secondary-link" href="/ZJU 课程/">
+          浏览课程记录
+        </a>
+      </div>
+    </div>
+
+    <aside className="home-profile-card" aria-label="Profile summary">
+      {highlights.map((item) => (
+        <div className="home-profile-item" key={item.label}>
+          <span>{item.label}</span>
+          <strong>{item.value}</strong>
+        </div>
+      ))}
+    </aside>
+  </section>
+
+  <section className="home-panel home-content-panel">
+    <div className="home-panel-header">
+      <p className="home-eyebrow">Explore</p>
+      <h2>内容分区</h2>
+    </div>
+    <div className="home-content-grid">
+      {contentSections.map((section) => (
+        <a className="home-content-card" href={section.href} key={section.href}>
+          <strong>{section.title}</strong>
+          <span>{section.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <div className="home-section-grid">
+    <section className="home-panel">
+      <div className="home-panel-header">
+        <p className="home-eyebrow">TODO</p>
+        <h2>近期计划</h2>
+      </div>
+      <ul className="home-task-list">
+        {todos.map((todo) => (
+          <li className={todo.done ? 'is-done' : undefined} key={todo.text}>
+            <span className="home-check">{todo.done ? '✓' : ''}</span>
+            <span>{todo.text}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section className="home-panel">
+      <div className="home-panel-header">
+        <p className="home-eyebrow">Recommendation</p>
+        <h2>推荐资源</h2>
+      </div>
+      <div className="home-resource-list">
+        {recommendations.map((item) => (
+          <a className="home-resource-card" href={item.href} target="_blank" rel="noreferrer" key={item.href}>
+            <strong>{item.title}</strong>
+            <span>{item.description}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <section className="home-panel home-friends">
+    <div className="home-panel-header">
+      <p className="home-eyebrow">FriendLink</p>
+      <h2>友链</h2>
+    </div>
+    <div className="home-friend-grid">
+      {friendLinks.map((friend) => (
+        <a className="home-friend-card" href={friend.href} target="_blank" rel="noreferrer" key={friend.href}>
+          <img className="home-friend-avatar" src={friend.avatar} alt={friend.title} loading="lazy" />
+          <span className="home-friend-meta">
+            <span className="home-friend-top">
+              <strong>{friend.title}</strong>
+              <small>{friend.tag}</small>
+            </span>
+            <span className="home-friend-desc">{friend.description}</span>
+          </span>
+          <span className="home-friend-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</section>

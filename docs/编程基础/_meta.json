@@ -1,0 +1,42 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "编程基础总览"
+  },
+  {
+    "type": "dir",
+    "name": "C++",
+    "label": "C++",
+    "collapsible": true,
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "Python",
+    "label": "Python",
+    "collapsible": true,
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "SQL",
+    "label": "SQL",
+    "collapsible": true,
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "其他中间件",
+    "label": "其他中间件",
+    "collapsible": true,
+    "collapsed": false
+  },
+  {
+    "type": "dir",
+    "name": "其他语言",
+    "label": "其他语言",
+    "collapsible": true,
+    "collapsed": false
+  }
+]

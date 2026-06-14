@@ -1,0 +1,22 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "Overview"
+  },
+  {
+    "type": "file",
+    "name": "FreeU",
+    "label": "FreeU"
+  },
+  {
+    "type": "file",
+    "name": "Latte",
+    "label": "Latte"
+  },
+  {
+    "type": "file",
+    "name": "ParaDiGMS",
+    "label": "ParaDiGMS"
+  }
+]

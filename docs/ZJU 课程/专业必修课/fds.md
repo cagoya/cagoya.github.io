@@ -1,8 +1,9 @@
 # fds
 
-!!!warning
-    fds是ZJU查重最狠的课之一，HW 是宁缺勿抄，为了一次作业那一个测试点去挂个科真的不合算。fds的PR(Peer Review)也非常恶心，只有自求多福了（
+:::warning
+fds是ZJU查重最狠的课之一，HW 是宁缺勿抄，为了一次作业那一个测试点去挂个科真的不合算。fds的PR(Peer Review)也非常恶心，只有自求多福了（
 
+:::
 ## 评分标准
 
 * Homework 10%

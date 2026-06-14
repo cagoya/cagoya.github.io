@@ -1,0 +1,17 @@
+[
+  {
+    "type": "file",
+    "name": "nginx",
+    "label": "Nginx"
+  },
+  {
+    "type": "file",
+    "name": "redis",
+    "label": "Redis"
+  },
+  {
+    "type": "file",
+    "name": "vector_db",
+    "label": "Vector DB"
+  }
+]

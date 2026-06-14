@@ -1,0 +1,27 @@
+[
+  {
+    "text": "Home",
+    "link": "/",
+    "activeMatch": "^/(index\\.html)?$"
+  },
+  {
+    "text": "ZJU 课程",
+    "link": "/ZJU 课程/",
+    "activeMatch": "^/ZJU%20%E8%AF%BE%E7%A8%8B/"
+  },
+  {
+    "text": "编程基础",
+    "link": "/编程基础/",
+    "activeMatch": "^/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"
+  },
+  {
+    "text": "论文阅读",
+    "link": "/论文阅读/",
+    "activeMatch": "^/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"
+  },
+  {
+    "text": "实用工具",
+    "link": "/实用工具/",
+    "activeMatch": "^/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"
+  }
+]
