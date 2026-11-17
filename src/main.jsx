@@ -3,12 +3,12 @@ import { createRoot } from 'react-dom/client';
 import './style.css';
 
 const sections = [
-  { id: 'biography', label: 'Biography' },
-  { id: 'education', label: 'Education' },
-  { id: 'publications', label: 'Publications' },
-  { id: 'awards', label: 'Awards' },
-  { id: 'internships', label: 'Internships' },
-  { id: 'services', label: 'Services' },
+  { id: 'biography', label: 'Biography', number: '01' },
+  { id: 'education', label: 'Education', number: '02' },
+  { id: 'publications', label: 'Publications', number: '03' },
+  { id: 'awards', label: 'Awards', number: '04' },
+  { id: 'internships', label: 'Internships', number: '05' },
+  { id: 'services', label: 'Services', number: '06' },
 ];
 
 const education = [
@@ -18,7 +18,7 @@ const education = [
 ];
 
 const awards = [
-  { title: 'Zhejiang Provincial Scholarship', detail: 'Zhejiang Provincial Government', date: '2025' },
+  { title: 'Zhejiang Provincial Scholarship', detail: 'Zhejiang Provincial Government', date: '2025', badge: '× 2' },
   { title: 'Zhejiang University Second-Class Scholarship', detail: 'Zhejiang University', date: '2024, 2025, 2026', badge: '× 3' },
 ];
 
@@ -52,24 +52,24 @@ function Arrow({ up = false }) {
 function Sidebar() {
   const active = useActiveSection();
   return <aside className="sidebar">
-    <a className="wordmark" href="#biography" aria-label="Zhihao Zhong — back to biography">ZZ<span aria-hidden="true">.</span></a>
     <div className="profile">
-      <img className="portrait" src="/images/zzh.jpg" alt="Zhihao Zhong" width="160" height="192" />
-      <div className="profile-caption"><p className="profile-name">Zhihao Zhong</p><p>Zhejiang University</p></div>
+      <a className="avatar-link" href="#biography" aria-label="Zhihao Zhong — biography"><img className="portrait" src="/images/zzh.jpg" alt="Zhihao Zhong" width="128" height="128" /></a>
+      <h1 id="profile-name">Zhihao Zhong</h1>
+      <a className="affiliation-link" href="https://www.zju.edu.cn/">Zhejiang University</a>
     </div>
     <nav aria-label="Page sections">
-      {sections.map(({ id, label }, index) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined}>
-        <span className="nav-number" aria-hidden="true">0{index + 1}</span>{label}<span className="nav-arrow"><Arrow /></span>
+      {sections.map(({ id, label, number }) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined}>
+        <span className="nav-number" aria-hidden="true">{number}</span>{label}
       </a>)}
     </nav>
     <p className="updated">Last updated <time dateTime="2026-10-10">Oct 10, 2026</time></p>
   </aside>;
 }
 
-function Section({ id, title, children, className = '' }) {
-  const number = sections.findIndex(section => section.id === id) + 1;
-  return <section id={id} aria-labelledby={`${id}-title`} className={className}>
-    <header className="section-heading"><span className="section-number" aria-hidden="true">0{number}</span><h2 id={`${id}-title`}>{title}</h2></header>
+function Section({ id, title, children }) {
+  const { number } = sections.find(section => section.id === id);
+  return <section id={id} aria-labelledby={`${id}-title`}>
+    <header className="section-heading"><span className="section-number" aria-hidden="true">{number}</span><h2 id={`${id}-title`}>{title}</h2></header>
     {children}
   </section>;
 }
@@ -94,12 +94,9 @@ function App() {
     <div className="page-layout" id="top">
       <Sidebar />
       <main id="main-content" tabIndex={-1}>
-        <Section id="biography" title="Biography" className="hero">
-          <p className="eyebrow"><span aria-hidden="true" />PRE-MASTER STUDENT · ZHEJIANG UNIVERSITY</p>
-          <h1>Zhihao Zhong<span className="name-period">.</span></h1>
-          <p className="hero-statement">Exploring intelligence<br />in <em>time series.</em></p>
+        <Section id="biography" title="Biography">
           <p className="bio">I am a pre-master student at the <a href="http://www.cs.zju.edu.cn/csen/main.htm">College of Computer Science and Technology</a>, <a href="https://www.zju.edu.cn/">Zhejiang University (ZJU)</a>, supervised by <a href="https://person.zju.edu.cn/lc">Prof. Ling Chen</a>. I expect to receive my bachelor's degree in software engineering from Zhejiang University in 2027.</p>
-          <div className="research"><h3>RESEARCH INTERESTS</h3><ul><li>LLM for Time Series Prediction</li><li>Time Series Foundation Models</li></ul></div>
+          <div className="research"><h3>Research Interests</h3><ul><li>LLM for Time Series Prediction</li><li>Agentic RL</li><li>Multi-Mode Fusion</li></ul></div>
         </Section>
         <Section id="education" title="Education">
           <div className="affiliations">{education.map(item => <Affiliation key={item.degree} logo="/images/zju.png" alt="Zhejiang University logo" name="Zhejiang University" date={<>{item.date}{item.expected && <span className="expected">Expected</span>}</>}>
@@ -107,7 +104,7 @@ function App() {
           </Affiliation>)}</div>
         </Section>
         <Section id="publications" title="Selected Publications">
-          <div className="publication-placeholder"><span className="publication-icon"><Arrow /></span><div><h3>More to come.</h3><p>Publications will be listed here.</p></div><span className="status-tag">Coming soon</span></div>
+          <p className="publication-placeholder">More to come.</p>
         </Section>
         <Section id="awards" title="Selected Awards"><EntryList items={awards} /></Section>
         <Section id="internships" title="Selected Internships">
@@ -122,7 +119,7 @@ function App() {
           <h3 className="group-label">Youth League Branch Secretary</h3>
           <EntryList items={[{ title: 'SE2303', detail: 'Zhejiang University', date: 'Apr 2024 — Jun 2027' }]} />
         </Section>
-        <footer><span>Zhihao Zhong · Zhejiang University</span><a href="#top">Back to top <Arrow up /></a></footer>
+        <footer><span>Theme adapted from <a href="https://github.com/yaoyao-liu/minimal-light">Minimal Light</a></span><a className="back-to-top" href="#top">Back to top <Arrow up /></a></footer>
       </main>
     </div>
   </>;
